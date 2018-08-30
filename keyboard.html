@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+			.block {
+				width: 50%;
+				margin: 0 auto;
+				display: flex;
+				justify-content: center;
+			}
+			.block .block-item{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 40px;
+				height: 50px;
+				margin:20px 0 20px 40px;
+				border: 1px solid #000;
+			}
+			.block .block-item i {
+				display: none;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background-color: #000;
+			}
+			.calendar-table {
+				width: 50%;
+				margin: 0 auto;
+				text-align: center;
+				border-collapse: collapse;
+				table-layout: fixed;
+			}
+			.calendar-table td{
+				height: 40px;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="block">
+		    <li class="block-item"><i></i></li>
+		    <li class="block-item"><i></i></li>
+		    <li class="block-item"><i></i></li>
+		    <li class="block-item"><i></i></li>
+		    <li class="block-item"><i></i></li>
+		    <li class="block-item"><i></i></li>
+		</ul>
+		<table class="calendar-table">
+			<tr>
+			   <td num="1">1</td>
+			   <td num="2">2</td>
+			   <td num="3">3</td>
+			   <td rowspan="2" num="del">x</td>
+			</tr>
+			<tr>
+			   <td num="4">4</td>
+			   <td num="5">5</td>
+			   <td num="6">6</td>
+			</tr>
+			<tr>
+			   <td num="7">7</td>
+			   <td num="8">8</td>
+			   <td num="9">9</td>
+			   <td rowspan="2" num="confirm">确定</td>
+			</tr>
+			<tr>
+			   <td num="spot">.</td>
+			   <td colspan="2" num="0">0</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			 var calendar = document.querySelector(".calendar-table");
+			 var s = "";
+			 calendar.onclick = function(ev) {
+			 	
+			 	var ev = ev || window.event;
+                var target = ev.target || ev.srcElement;
+                switch (target.getAttribute("num")){
+                	case "spot":
+                		break;
+                	case "del":
+                	    s = s.substr(0, s.length - 1);
+                	    fillPassword(s)
+                		break;
+                	case "confirm":
+                		break;
+                	default: 
+                	    s += target.getAttribute("num");
+
+                	    fillPassword(s)
+                }
+			 }
+			 function fillPassword(s) {
+			 	 var item = document.querySelectorAll("i");
+			 	 for (var i = 0; i < item.length; i++) {
+			 	 	item[i]. style.display = "none";
+			 	 }
+			 	 if(s.length > 0) {
+			 	 	for (var i = 0; i < s.length; i++) {
+			 	 	 item[i]. style.display = "block"
+			 	    }
+			 	 }
+			 	
+			 	 console.log(s)
+			 }
+		</script>
+	</body>
+</html>
