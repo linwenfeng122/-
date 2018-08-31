@@ -5,4 +5,4 @@
 效果如下图：
 
 
-     [image](https://github.com/linwenfeng122/keyboard/blob/master/preview/keyboard.png)
+     ![image](https://github.com/linwenfeng122/keyboard/blob/master/preview/keyboard.png)
