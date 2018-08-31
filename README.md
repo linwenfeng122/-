@@ -3,4 +3,5 @@
 
 
 效果如图：
+
      ![image](https://github.com/linwenfeng122/keyboard/blob/master/preview/keyboard.png)
